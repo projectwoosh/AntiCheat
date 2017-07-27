@@ -7,7 +7,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import tk.thewoosh.plugins.wac.WAC;
 import tk.thewoosh.plugins.wac.checks.CheckResult;
-import tk.thewoosh.plugins.wac.checks.combat.HitSpeed;
 import tk.thewoosh.plugins.wac.checks.combat.Reach;
 import tk.thewoosh.plugins.wac.checks.combat.WallHit;
 import tk.thewoosh.plugins.wac.util.User;
@@ -33,13 +32,6 @@ public class CombatListener implements Listener {
 			if (wallHit.failed()) {
 				e.setCancelled(true); // Remove this line for silent checks
 				WAC.log(user, wallHit);
-				return;
-			}
-			
-			CheckResult hitSpeed = HitSpeed.runCheck(user, e.getEntity());
-			if (hitSpeed.failed()) {
-				e.setCancelled(true); // Remove this line for silent checks
-				WAC.log(user, hitSpeed);
 				return;
 			}
 		}
