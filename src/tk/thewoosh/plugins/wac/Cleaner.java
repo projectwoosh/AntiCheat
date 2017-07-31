@@ -10,6 +10,7 @@ public class Cleaner extends BukkitRunnable {
 	public void run() {
 		for (User user : WAC.USERS.values()) {
 			user.getHits();
+			user.getEntities();
 		}
 	}
 

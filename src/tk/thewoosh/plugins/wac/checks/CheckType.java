@@ -5,7 +5,8 @@ public enum CheckType {
 	GLIDE("Glide"), 
 	REACH("Reach"),
 	WALLHIT("WallHit"),
-	HITSPEED("HitSpeed"); 
+	HITSPEED("HitSpeed"),
+	MULTIAURA("MultiAura"); 
 	
 	private String string;
 	

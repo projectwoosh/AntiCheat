@@ -13,7 +13,8 @@ public class HitSpeed {
 	
 	public static CheckResult runCheck(User user, Entity entity) {
 		user.addHit();
-		int hits = user.getHits();
+		int hits = user.getHits() * 2;
+		// Will fix this later 
 		
 		user.getPlayer().sendMessage("Hits: " + hits);
 		

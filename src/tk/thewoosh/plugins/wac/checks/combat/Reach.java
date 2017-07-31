@@ -21,7 +21,7 @@ public class Reach {
 		double max = user.getPlayer().getGameMode() == GameMode.CREATIVE ? Settings.COMBAT_MAX_REACH_CREATIVE : Settings.COMBAT_MAX_REACH_SURVIVAL;
 		
 		if (x > max || z > max) 
-			return new CheckResult(true, CheckType.REACH, ", " + (x > z ? z > max ? "both are " : x + " is " : z + " is ") + "greather than " + max);
+			return new CheckResult(true, CheckType.REACH, (x > z ? z > max ? "both are " : x + " is " : z + " is ") + "greather than " + max);
 		
 		return PASS;
 	}
