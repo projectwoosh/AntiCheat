@@ -7,12 +7,9 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import tk.thewoosh.plugins.wac.WAC;
 import tk.thewoosh.plugins.wac.checks.CheckResult;
-<<<<<<< HEAD
 import tk.thewoosh.plugins.wac.checks.CheckType;
 import tk.thewoosh.plugins.wac.checks.combat.HitSpeed;
 import tk.thewoosh.plugins.wac.checks.combat.MultiAura;
-=======
->>>>>>> 54406f919c9ea598d52b4760e03bde17183c56d9
 import tk.thewoosh.plugins.wac.checks.combat.Reach;
 import tk.thewoosh.plugins.wac.checks.combat.WallHit;
 import tk.thewoosh.plugins.wac.util.User;
@@ -51,7 +48,6 @@ public class CombatListener implements Listener {
 					return;
 				}
 			}
-<<<<<<< HEAD
 
 			if (WAC.shouldCheck(user, CheckType.MULTIAURA)) {
 				CheckResult multiAura = MultiAura.runCheck(user, e.getEntity());
@@ -61,8 +57,6 @@ public class CombatListener implements Listener {
 					return;
 				}
 			}
-=======
->>>>>>> 54406f919c9ea598d52b4760e03bde17183c56d9
 		}
 	}
 

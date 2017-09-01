@@ -6,7 +6,8 @@ public enum CheckType {
 	REACH("Reach"),
 	WALLHIT("WallHit"),
 	HITSPEED("HitSpeed"),
-	MULTIAURA("MultiAura"); 
+	MULTIAURA("MultiAura"),
+	NORMALMOVEMENTS("NormalMovements"); 
 	
 	private String string;
 	

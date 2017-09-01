@@ -17,26 +17,22 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import tk.thewoosh.plugins.wac.checks.CheckResult;
 import tk.thewoosh.plugins.wac.checks.CheckType;
-import tk.thewoosh.plugins.wac.events.CombatListener;
+import tk.thewoosh.plugins.wac.events.CheckManager;
 import tk.thewoosh.plugins.wac.events.JoinLeaveListener;
-import tk.thewoosh.plugins.wac.events.MoveListener;
 import tk.thewoosh.plugins.wac.util.Settings;
 import tk.thewoosh.plugins.wac.util.User;
 
 public class WAC extends JavaPlugin {
 
 	public static final HashMap<UUID, User> USERS = new HashMap<>();
-	
 	public static final ArrayList<CheckType> DISABLED_CHECKS = new ArrayList<>();
-
 	public static final boolean SIMPLE_LOG = false;
 
 	@Override
 	public void onEnable() {
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new JoinLeaveListener(), this);
-		pm.registerEvents(new MoveListener(), this);
-		pm.registerEvents(new CombatListener(), this);
+		pm.registerEvents(new CheckManager(), this);
 		
 		// 200 is the amount of ticks between cleanups. We clean things up, so the memory doesn't get overloaded etc. so 200 ticks = 10 seconds
 		new Cleaner().runTaskTimerAsynchronously(this, Settings.CLEAN_UP_DELAY, Settings.CLEAN_UP_DELAY);
@@ -65,6 +61,10 @@ public class WAC extends JavaPlugin {
 	public static boolean shouldCheck(User user, CheckType type) {
 		// TODO Add config with disabled checks & disable checks by command
 		return !DISABLED_CHECKS.contains(type);
+	}
+	
+	public static boolean isSilent() {
+		return false;
 	}
 
 }
