@@ -9,11 +9,12 @@ public class User {
 
 	private final Player player;
 	public double oldY = 0; 
-	public boolean wasGoingUp = false;
 	private ArrayList<Long> hits = new ArrayList<>();
 	private HashMap<Long, Integer> entities = new HashMap<>();
-	
 	private long lastTimeHitsCleaned = 0, lastTimeEntitiesCleaned = 0;
+	
+	public boolean wasGoingUp = false;
+	public int oldYModifier = 0, ticksUp = 0, oldTicksUp = 0;
 	
 	public User(Player player) {
 		this.player = player;

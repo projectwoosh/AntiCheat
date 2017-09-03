@@ -60,6 +60,8 @@ public class CheckManager implements Listener {
 					case PULLDOWN:
 
 						break;
+					default:
+						break;
 					}
 				}
 			}

@@ -17,8 +17,8 @@ public class WallHit {
 	public static CheckResult runCheck(User user, Entity entity) {
 		System.out.println("Loaded module: WallHit");
 		Distance distance = new Distance(user.getPlayer().getLocation(), entity.getLocation());
-		double x = distance.getXDiffrence();
-		double z = distance.getZDiffrence();
+		double x = distance.getXDifference();
+		double z = distance.getZDifference();
 		Player p = user.getPlayer();
 
 		if (x == 0 || z == 0) {
@@ -26,7 +26,7 @@ public class WallHit {
 			return PASS;
 		}
 		
-		if (distance.getYDiffrence() >= .6) // TODO Change .6 to height of entity / height of player
+		if (distance.getYDifference() >= .6) // TODO Change .6 to height of entity / height of player
 			return PASS;
 		
 		Location l = null;

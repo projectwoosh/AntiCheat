@@ -1,5 +1,7 @@
 package tk.thewoosh.plugins.wac.checks;
 
+import org.bukkit.Bukkit;
+
 public abstract class Check {
 
 	protected final CheckType type;
@@ -18,5 +20,8 @@ public abstract class Check {
 		return cancelType;
 	}
 	
+	public void debug(Object message) {
+		Bukkit.broadcastMessage(String.valueOf(message));
+	}
 	
 }

@@ -18,9 +18,9 @@ public class Glide extends MoveCheck {
 	public CheckResult runCheck(User user, Distance distance) {
 		final double oldY = user.oldY;
 //		user.wasGoingUp = distance.getFrom().getY() > distance.getTo().getY();
-		user.oldY = distance.getYDiffrence();
+		user.oldY = distance.getYDifference();
 		if (distance.getFrom().getY() > distance.getTo().getY()) {
-			if (oldY >= distance.getYDiffrence() && oldY != 0 && !MovementUtil.shouldNotFlag(distance.getTo())) {
+			if (oldY >= distance.getYDifference() && oldY != 0 && !MovementUtil.shouldNotFlag(distance.getTo())) {
 				return new CheckResult(true, CheckType.GLIDE, "tried to glide; " + oldY + " <= " + user.oldY);
 			}
 		} else {

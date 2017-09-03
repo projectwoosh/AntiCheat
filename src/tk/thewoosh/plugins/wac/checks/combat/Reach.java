@@ -15,8 +15,8 @@ public class Reach {
 	
 	public static CheckResult runCheck(User user, Entity entity) {
 		Distance distance = new Distance(user.getPlayer().getLocation(), entity.getLocation());
-		double x = distance.getXDiffrence();
-		double z = distance.getZDiffrence();
+		double x = distance.getXDifference();
+		double z = distance.getZDifference();
 		
 		double max = user.getPlayer().getGameMode() == GameMode.CREATIVE ? Settings.COMBAT_MAX_REACH_CREATIVE : Settings.COMBAT_MAX_REACH_SURVIVAL;
 		
