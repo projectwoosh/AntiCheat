@@ -9,6 +9,7 @@ import tk.thewoosh.plugins.wac.checks.CheckResult;
 import tk.thewoosh.plugins.wac.checks.CheckType;
 import tk.thewoosh.plugins.wac.checks.MoveCheck;
 import tk.thewoosh.plugins.wac.util.Distance;
+import tk.thewoosh.plugins.wac.util.MovementUtil;
 import tk.thewoosh.plugins.wac.util.Settings;
 import tk.thewoosh.plugins.wac.util.User;
 import tk.thewoosh.plugins.wac.util.YMap;
@@ -36,22 +37,39 @@ public class NormalMovements extends MoveCheck {
 		user.ticksUp++;
 		user.oldTicksUp = ticksUp;
 		
-		
+		final double speed = Settings.round(distance.getYDifference());
 		
 		int id = getYModifier(user);
 		if (id > user.oldYModifier)
 			user.oldYModifier = id;
 		id = user.oldYModifier;
-		
 		YMap map = YMap.get(id);
 		
-		double speed = Settings.round(distance.getYDifference());
-		debug("(" + id + ") " + ticksUp + "=" + speed);
+		if (distance.isGoingUp() && distance.isMovingHorizontally()) {
+			boolean step = MovementUtil.isStepping(distance.getFrom()) || MovementUtil.isStepping(distance.getTo());
+			boolean yMap = map != null && map.contains(speed);
+			debug(yMap);
+			if (step) {
+				if (speed > .5) 
+					return new CheckResult(true, CheckType.NORMALMOVEMENTS, "reason: step, type: " + (speed > .5 ? "high" : "low") + ", y: " + speed);
+				return PASS;
+			}
+		}
+		
+		
 		
 		if (map == null) {
 			Bukkit.getLogger().warning("Modifier '" + id + "' has no contents!");
 			return PASS;
 		}
+		if (!map.hasSpeed(ticksUp)) {
+			return new CheckResult(true, CheckType.NORMALMOVEMENTS, "reason: long, s: " + ticksUp + ", m: " + map.size());
+		}
+		
+		
+		//debug("(" + id + ") " + ticksUp + "=" + speed);
+		
+		
 		
 		if (map.size() <= ticksUp) 
 			if (!(id != 0 && distance.isMovingHorizontally() && map.size() == ticksUp && speed == map.getSpeed(ticksUp)))
@@ -61,7 +79,7 @@ public class NormalMovements extends MoveCheck {
 		double expected = map.getSpeed(ticksUp);
 		
 		if (expected != speed) {
-			debug(ticksUp);
+			//debug(ticksUp);
 			return new CheckResult(true, CheckType.NORMALMOVEMENTS, "reason: normal, type: " + (expected < speed ? "high" : "low") + " (speed: " + speed + ", expected: " + expected);
 		}
 		

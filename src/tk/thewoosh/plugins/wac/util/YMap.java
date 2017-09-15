@@ -49,8 +49,16 @@ public class YMap {
 	private void set(int speed, double value) {
 		speedMap.put(speed, value);
 	}
+	
+	public boolean contains(double value) {
+		return speedMap.containsValue(value);
+	}
+	
+	public boolean hasSpeed(int speed) {
+		return speedMap.containsKey(speed);
+	}
 
-	public double getSpeed(int speed) {
+	public Double getSpeed(int speed) {
 		return speedMap.get(speed);
 	}
 
