@@ -5,10 +5,10 @@ Note: Please do not copy and paste this tutorial, because this repository is mad
 
 ----
 
-Twitter: https://twitter.com/projectwoosh
-Discord: https://discord.gg/ADgZXQJ
-YouTube Channel: https://www.youtube.com/TheWoosh
-YouTube Series: https://www.youtube.com/playlist?list=PL_OXY_Q1MQ9K1kX7T2NgGov_7RP23LcdR
+Twitter: https://twitter.com/projectwoosh  
+Discord: https://discord.gg/ADgZXQJ  
+YouTube Channel: https://www.youtube.com/TheWoosh  
+YouTube Series: https://www.youtube.com/playlist?list=PL_OXY_Q1MQ9K1kX7T2NgGov_7RP23LcdR  
 
 ----
 You are not allowed to use this code, for any commercial use. You are not allowed to post my code on YouTube. You are not allowed to sell the anticheat, WITHOUT my permission. You are allowed to use this code, to create your own anticheat, for a hobby or a Minecraft Server. Any questions can be asked on Discord.
